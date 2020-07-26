@@ -1,6 +1,6 @@
 #!/bin/bash
-[ -z "$PUBLIC_IP" ] && PUBLIC_IP=`curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
-[ -z "$PUBLIC_IPV6" ] && PUBLIC_IPV6=`curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/$(curl http://169.254.169.254/latest/meta-data/mac)/ipv6s`
+[ -z "$PUBLIC_IP" ] && PUBLIC_IP=`curl --connect-timeout 3 -s http://169.254.169.254/latest/meta-data/public-ipv4`
+[ -z "$PUBLIC_IPV6" ] && PUBLIC_IPV6=`curl --connect-timeout 3 -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/$(curl --connect-timeout 3 http://169.254.169.254/latest/meta-data/mac)/ipv6s`
 [ -z "$PUBLIC_IP" -o "not found" = "$PUBLIC_IP" ] && PUBLIC_IP=`curl --connect-timeout 3 -s ipv4.icanhazip.com`
 [ -z "$PUBLIC_IPV6" -o "not found" = "$PUBLIC_IPV6" ] && PUBLIC_IPV6=`curl --connect-timeout 3 -s ipv6.icanhazip.com`
 [ -z "$PRIVATE_TOP_ZONES" ] && PRIVATE_TOP_ZONES="localhost local priv private"
