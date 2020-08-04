@@ -6,14 +6,14 @@
 [ -z "$PRIVATE_TOP_ZONES" ] && PRIVATE_TOP_ZONES="localhost local priv private"
 
 {{ range $zone, $containers := groupByMulti $ "Env.ZONE" "," }}
-zone={{ $zone }}
+ZONE={{ $zone }}
 {{ end }}
 
 {{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
 host={{ $host }}
-topzone=$(echo "${host##*.}")
+topzone=$(echo "${host#*.}")
 
-if [ -n "$zone" ]; then
+if [ -n "$ZONE" ]; then
   tenant=$(echo "${host%.$zone}")
 else
   tenant=$(echo "${host%.*.*}")

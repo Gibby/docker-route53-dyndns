@@ -41,7 +41,7 @@ Example run
 docker run --rm --name route53 \
 	-v /var/run/docker.sock:/tmp/docker.sock
 	-e AWS_ACCESS_KEY_ID=ABC -e AWS_SECRET_ACCESS_KEY=DEF
-	-t hmalphettes/docker-route53-dyndns
+	-t gibby/route53-dyndns
 ```
 
 Example setup with fig
@@ -111,13 +111,3 @@ Minimum IAM policy:
   "Resource": "*"
 }
 ```
-
-COPYRIGHT:
-----------
-Sutoiku Inc 2014
-
-LICENSE:
---------
-MIT
-
-Contributions: welcome!
