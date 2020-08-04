@@ -54,7 +54,7 @@ nginx:
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock
 route53:
-  image: hmalphettes/docker-route53-dyndns
+  image: gibby/route53-dyndns
   environment:
   	- AWS_ACCESS_KEY_ID: ABC
   	- AWS_SECRET_ACCESS_KEY: DEF
