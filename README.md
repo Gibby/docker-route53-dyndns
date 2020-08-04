@@ -106,7 +106,8 @@ Minimum IAM policy:
 {
   "Effect": "Allow",
   "Action": [
-    "route53:ListHostedZones"
+    "route53:ListHostedZones",
+    "route53:ListHostedZonesByName"
   ],
   "Resource": "*"
 }

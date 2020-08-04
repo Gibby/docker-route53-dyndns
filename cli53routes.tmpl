@@ -25,11 +25,11 @@ else
         cmd=""
         for IP in $PUBLIC_IP
         do
-	        cmd="$cmd cli53 rrcreate $zone $tenant A $IP --ttl 300 --replace;"
+	        cmd="$cmd cli53 rrcreate --replace $zone "$tenant 60 A $IP";"
         done
         for IPV6 in $PUBLIC_IPV6
         do
-                cmd="$cmd cli53 rrcreate $zone $tenant AAAA $IPV6 --ttl 300 --replace;"
+                cmd="$cmd cli53 rrcreate --replace $zone "$tenant 60 AAAA $IPV6";"
         done
 	if [ -z "$DRY_ROUTE53" ]; then
 		echo "$cmd" >> /var/log/route53-dyndns.log

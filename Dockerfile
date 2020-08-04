@@ -12,7 +12,8 @@ RUN	curl -L https://glare.now.sh/jwilder/docker-gen/docker-gen-linux-amd64 -o do
 		tar xvzf docker-gen-linux-amd64.tar.gz -C /usr/local/bin && \
 		rm docker-gen-linux-amd64.tar.gz
 
-RUN	curl -L https://glare.now.sh/barnybug/cli53/cli53-linux-amd64 -o /usr/local/bin/cli53
+RUN	curl -L https://glare.now.sh/barnybug/cli53/cli53-linux-amd64 -o /usr/local/bin/cli53 && \
+		chmod +x /usr/local/bin/cli53
 
 COPY cli53routes.tmpl /app/cli53routes.tmpl
 
